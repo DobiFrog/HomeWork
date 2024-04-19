@@ -6,8 +6,7 @@ public class Employee implements EmployeeInterface {
     private static final String SQL_INSERT_EMPLOYEE = "INSERT INTO employee (\"first_name\", \"last_name\", \"phone\", \"company_id\") values (?, ?, ?, ?)";
     public static final String SQL_SELECT_BY_ID_EMPLOYEE = "SELECT * FROM employee where id = ?";
     public static final String SQL_UPDATE_EMPLOYEE = "UPDATE employee SET last_name = ?, email = ? WHERE id = ?";
-
-
+    public static final String SQL_NUM_OF_EMPLOYEE = "SELECT COUNT(*) FROM employee WHERE  company_id = ?";
     private Connection connection;
 
     public Employee(String connectionString, String user, String pass) throws SQLException {
@@ -20,7 +19,6 @@ public class Employee implements EmployeeInterface {
         statement.setString(1, firstName);
         statement.setString(2, lastName);
         statement.setString(3, phone);
-        //надо ли переводить в стрингу?
         statement.setInt(4, companyId);
         statement.executeUpdate();
 
@@ -58,7 +56,6 @@ public class Employee implements EmployeeInterface {
 
         //кол-во изменённых строк
         statement.executeUpdate();
-
     }
 
     @Override
@@ -66,5 +63,12 @@ public class Employee implements EmployeeInterface {
         connection.close();
     }
 
-
+    @Override
+    public int numOfEmployee(int companyId) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(SQL_NUM_OF_EMPLOYEE);
+        statement.setInt(1, companyId);
+        ResultSet rowsCount = statement.executeQuery();
+        rowsCount.next();
+        return rowsCount.getInt(1);
+    }
 }

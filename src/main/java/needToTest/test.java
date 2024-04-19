@@ -1,9 +1,6 @@
 package needToTest;
 
-import needToTest.companySettings.Company;
-import needToTest.companySettings.CompanyInterface;
 import needToTest.employeeSettings.Employee;
-import needToTest.employeeSettings.EmployeeConst;
 import needToTest.employeeSettings.EmployeeInterface;
 
 import java.sql.SQLException;
@@ -31,6 +28,9 @@ public class test {
 //        System.out.println(sush1);
 //        System.out.println(sush1.lastName());
 //        System.out.println(sush1.firstName());
+//
+        System.out.println(newEmpl.numOfEmployee(1872));
+
 
         newEmpl.close();
 
@@ -38,11 +38,6 @@ public class test {
 //        CompanyInterface TO_DELETE = new Company(connectionString, user, pass);
 //        int ID_COMPANY_TO_DELETE = TO_DELETE.createCompany("Патрик тостит API");
 //        System.out.println("ID новой компании: " + ID_COMPANY_TO_DELETE);
-
-
-
-
-
 
 
     }

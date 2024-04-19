@@ -5,7 +5,6 @@ import java.sql.*;
 public class Company implements CompanyInterface {
     private static final String SQL_INSERT_COMPANY = "INSERT INTO company(\"name\") values (?)";
     private static final String SQL_DELETE_BY_ID = "DELETE FROM company WHERE id = ?";
-
     private Connection connection;
 
     public Company(String connectionString, String user, String pass) throws SQLException {

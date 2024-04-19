@@ -22,9 +22,6 @@ public class EmployeeJson {
     @JsonProperty("middleName")
     private String middleName;
 
-    @JsonProperty("id")
-    private int id;
-
     @JsonProperty("isActive")
     private boolean isActive;
 
@@ -33,7 +30,6 @@ public class EmployeeJson {
 
     @JsonProperty("url")
     private String url;
-
 
 
     public void setFirstName(String firstName) {
@@ -84,13 +80,13 @@ public class EmployeeJson {
         return middleName;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+//
+//    public int getId() {
+//        return id;
+//    }
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
